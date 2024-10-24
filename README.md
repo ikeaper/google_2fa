@@ -7,7 +7,7 @@ google 验证
 
 $google2fa = new GoogleAuthenticator();
 
-$valid = $google2fa->verifyCode($google_code_saved, $request->googlecode, 2);
+$valid = $google2fa->verifyCode($google_code_saved, $request->googlecode, 2);//google_code_saved是数据库保存的验证器密钥
 
 if (!$valid) {
 
@@ -53,5 +53,5 @@ $checkResult = $ga->verifyCode($secret, $code, 2);  //验证
 
 if (!$checkResult)  return Response::make()->error('验证码错误')->refresh();
 
-$user_info->google_code=$secret;  //开始保存验证器密钥
+//$user['google_code']=$secret;  //开始保存验证器密钥到数据库
 
